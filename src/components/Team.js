@@ -5,7 +5,8 @@ export const Team = (props) => {
         <div className='col-md-8 col-md-offset-2 section-title'>
           <h2>Conoce el Equipo</h2>
           <p>
-          Las partes involucradas son personas que participan activamente en un proyecto, que influyen en el resultado del proyecto. Los perfiles de las partes involucradas son:
+          Las partes involucradas son personas que participan activamente en un proyecto, que influyen en el resultado del proyecto. 
+          Los perfiles de las partes involucradas son:
           </p>
         </div>
         <div id='row'>
