@@ -6,7 +6,7 @@ import { About } from './components/about'
 import { Services } from './components/services'
 import { Gallery } from './components/gallery'
 import { Team } from './components/Team'
-
+//import SignInSide from './components/signInSide'
 import JsonData from './data/data.json'
 
 const App = () => {
@@ -24,6 +24,7 @@ const App = () => {
       <Services data={landingPageData.Services} />
       <Gallery />
       <Team data={landingPageData.Team} />
+      
     </div>
   )
 }
