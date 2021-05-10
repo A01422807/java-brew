@@ -1,4 +1,14 @@
+const dotenv = require('dotenv');
+const path = require('path');
+
+dotenv.config({
+  path: path.resolve(__dirname, process.env.NODE_ENV + '.env')
+});
+
 module.exports = {
+    // 0. NODE ENV
+    NODE_ENV: process.env.NODE_ENV,
+
     // 1. MongoDB
     MONGO_URI: process.env.MONGO_URI || 'mongodb+srv://adsoft:adsoft@cluster0.bgmmp.mongodb.net/Coffee?retryWrites=true&w=majority',
   
