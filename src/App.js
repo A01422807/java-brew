@@ -8,7 +8,7 @@ import { Services } from './components/services'
 import { Gallery } from './components/gallery'
 import { Team } from './components/Team'
 import  SignInSide  from './components/signInSide'
-  import  SignUp  from './components/signUp'
+import  SignUp  from './components/signUp'
 import JsonData from './data/data.json'
 
 const App = () => {
@@ -36,9 +36,6 @@ const App = () => {
             </Switch>
           </div>
         </Router>
-
-{/*       */}
-      
     </div>
   )
 }
