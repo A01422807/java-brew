@@ -4,6 +4,8 @@ var moment = require('moment');
 var jwt = require('jwt-simple');
 var Auth = require('./controllers/auth.js');
 var People = require('./controllers/users.js');
+var Coffee = require('./controllers/coffee.js');
+var Person = require('./models/user.js');
 
 // 2. Authentication Middleware
 function ensureAuthenticated(req, res, next) {
@@ -24,11 +26,11 @@ function ensureAuthenticated(req, res, next) {
     return res.status(401).send({ error: 'TokenExpired' });
   }
   // check if the user exists
-  Person.findById(payload.sub, function(err, person){
+  Person.findById(payload.id, function(err, person){
     if (!person){
       return res.status(401).send({error: 'PersonNotFound'});
     } else {
-      req.user = payload.sub;
+      req.user = person;
       next();
     }
   });
@@ -44,5 +46,10 @@ module.exports = function (app) {
   app.get('/users/page/:page', ensureAuthenticated, People.list);
   app.get('/users/:id', ensureAuthenticated, People.show);
   app.get('/profile', ensureAuthenticated, People.profile);
+
+  // 6. Coffee Routes
+  app.get('/coffee', ensureAuthenticated, Coffee.list);
+  app.get('/coffee/page/:page', ensureAuthenticated, Coffee.list);
+  app.get('/coffee/:id', ensureAuthenticated, Coffee.byId);
 
 };
