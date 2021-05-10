@@ -1,6 +1,6 @@
 // 1. Load the Person model
 var Person = require('../models/user.js');
-var jwt = require("jsonwebtoken");
+var jwt = require('jwt-simple');
 var bcrypt = require("bcryptjs");
 const config = require("../config.js");
 
@@ -44,7 +44,7 @@ exports.login = async function(req, res) {
                         message: "Invalid Password!"
                     });
                 }
-                var token = jwt.sign({ id: user.id }, config.TOKEN_SECRET, {});
+                var token = jwt.encode({ id: user.id }, config.TOKEN_SECRET);
                 return res.status(200).send({token: token});
             }
         );

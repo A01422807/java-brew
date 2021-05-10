@@ -4,7 +4,7 @@ var moment = require('moment');
 var jwt = require('jwt-simple');
 var Auth = require('./controllers/auth.js');
 var People = require('./controllers/users.js');
-
+var Person = require('./models/user.js');
 // 2. Authentication Middleware
 function ensureAuthenticated(req, res, next) {
   if (!req.headers.authorization) {
@@ -24,11 +24,11 @@ function ensureAuthenticated(req, res, next) {
     return res.status(401).send({ error: 'TokenExpired' });
   }
   // check if the user exists
-  Person.findById(payload.sub, function(err, person){
+  Person.findById(payload.id, function(err, person){
     if (!person){
       return res.status(401).send({error: 'PersonNotFound'});
     } else {
-      req.user = payload.sub;
+      req.user = person;
       next();
     }
   });
