@@ -18,13 +18,13 @@ exports.signup = async function(req, res){
         password: req.body.password
     });
 
-    const savedUser = user.save(function(err){
+    user.save(function(err){
     if (err) {
         res.status(500).send({ message: err });
         return;
     }
-
-        return res.status(200).send(savedUser);
+        var token = jwt.encode({ id: user.id }, config.TOKEN_SECRET);
+        return res.status(200).send({token: token});
     });
 };
 
