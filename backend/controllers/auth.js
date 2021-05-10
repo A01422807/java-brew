@@ -25,6 +25,7 @@ exports.signup = async function(req, res){
     }
         var token = jwt.encode({ id: user.id }, config.TOKEN_SECRET);
         return res.status(200).send({token: token});
+
     });
 };
 
@@ -45,6 +46,7 @@ exports.login = async function(req, res) {
                     });
                 }
                 var token = jwt.encode({ id: user.id }, config.TOKEN_SECRET);
+
                 return res.status(200).send({token: token});
             }
         );

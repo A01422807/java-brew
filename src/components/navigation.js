@@ -50,6 +50,7 @@ export const Navigation = (props) => {
                 Equipo
               </a>
             </li>
+
           </ul>
         </div>
       </div>
