@@ -7,6 +7,7 @@ var logger = require('morgan');
 
 // 2. Include Configuration
 var config = require('./config');
+console.log(`NODE_ENV=${config.NODE_ENV}`);
 
 // 3. Initialize the application 
 var app = express();
