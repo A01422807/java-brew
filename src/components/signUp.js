@@ -12,6 +12,7 @@ import { makeStyles } from '@material-ui/core/styles';
 import Container from '@material-ui/core/Container';
 import history from './history';
 import axios from 'axios';
+import { baseURL } from '../config';
 
 
 function Copyright() {
@@ -68,7 +69,7 @@ function _handleErrorInputChange(e) {
 async function _onPress() {
 
   try {
-    let response = await axios.post("http://localhost:8081/auth/signup", {
+    let response = await axios.post(baseURL + "/auth/signup", {
       firstName: fname,
       lastName: lname,
       email: email,
