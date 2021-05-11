@@ -9,6 +9,8 @@ import Grid from '@material-ui/core/Grid';
 import LockOutlinedIcon from '@material-ui/icons/LockOutlined';
 import Typography from '@material-ui/core/Typography';
 import { makeStyles } from '@material-ui/core/styles';
+import history from './history';
+import axios from 'axios';
 
 
 const useStyles = makeStyles((theme) => ({
@@ -41,6 +43,42 @@ const useStyles = makeStyles((theme) => ({
     margin: theme.spacing(3, 0, 2),
   },
 }));
+
+
+var email, pass;
+
+
+function _handleErrorInputChange(e) {
+   if (e.target.id === 'email') {
+    email = e.target.value;
+  } else if (e.target.id === 'password') {
+    pass = e.target.value;
+  }
+
+
+}
+
+async function _onPress() {
+
+  try {
+    let response = await axios.post("http://localhost:8081/auth/login", {
+    email: email,
+    password: pass
+    })
+
+    console.log(response.data.token);
+    localStorage.setItem('token', response.data.token);
+    history.push('/Home');
+    return response.data;
+  }
+    catch (error) {
+    alert(error.response.data.message);
+    }; 
+  
+}
+
+
+
 export default function SignInSide() {
   const classes = useStyles();
   return (
@@ -66,6 +104,7 @@ export default function SignInSide() {
               name="email"
               autoComplete="email"
               autoFocus
+              onChange={_handleErrorInputChange}
             />
             <TextField
               variant="outlined"
@@ -77,16 +116,17 @@ export default function SignInSide() {
               type="password"
               id="password"
               autoComplete="current-password"
+              onChange={_handleErrorInputChange}
             />
             {/* <FormControlLabel
               control={<Checkbox value="remember" color="primary" />}
               label="Remember me"
             /> */}
             <Button
-              type="submit"
               fullWidth
               variant="contained"
               color="primary"
+              onClick={_onPress}
               className={classes.submit}
             >
               Sign In

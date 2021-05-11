@@ -10,6 +10,9 @@ import LockOutlinedIcon from '@material-ui/icons/LockOutlined';
 import Typography from '@material-ui/core/Typography';
 import { makeStyles } from '@material-ui/core/styles';
 import Container from '@material-ui/core/Container';
+import history from './history';
+import axios from 'axios';
+
 
 function Copyright() {
   return (
@@ -44,7 +47,48 @@ const useStyles = makeStyles((theme) => ({
   },
 }));
 
+var fname, lname, email, pass;
+
+
+function _handleErrorInputChange(e) {
+  if (e.target.id === 'firstName') {
+    fname = e.target.value;
+  } else if (e.target.id === 'lastName') {
+    lname = e.target.value;
+  } else if (e.target.id === 'email') {
+    email = e.target.value;
+  } else if (e.target.id === 'password') {
+    pass = e.target.value;
+  }
+
+
+}
+
+
+async function _onPress() {
+
+  try {
+    let response = await axios.post("http://localhost:8081/auth/signup", {
+      firstName: fname,
+      lastName: lname,
+      email: email,
+      password: pass
+    })
+
+  
+    localStorage.setItem('token', response.data.token);
+    history.push('/Home');
+    return response.data;
+  }
+    catch (error) {
+    console.log(error.response);
+    alert(error.response.data.message);
+    }; 
+  
+}
+
 export default function SignUp() {
+
   const classes = useStyles();
 
   return (
@@ -69,6 +113,7 @@ export default function SignUp() {
                 id="firstName"
                 label="First Name"
                 autoFocus
+                onChange={_handleErrorInputChange}
               />
             </Grid>
             <Grid item xs={12} sm={6}>
@@ -80,6 +125,7 @@ export default function SignUp() {
                 label="Last Name"
                 name="lastName"
                 autoComplete="lname"
+                onChange={_handleErrorInputChange}
               />
             </Grid>
             <Grid item xs={12}>
@@ -91,6 +137,7 @@ export default function SignUp() {
                 label="Email Address"
                 name="email"
                 autoComplete="email"
+                onChange={_handleErrorInputChange}
               />
             </Grid>
             <Grid item xs={12}>
@@ -103,6 +150,7 @@ export default function SignUp() {
                 type="password"
                 id="password"
                 autoComplete="current-password"
+                onChange={_handleErrorInputChange}
               />
             </Grid>
             {/* <Grid item xs={12}>
@@ -113,14 +161,16 @@ export default function SignUp() {
             </Grid> */}
           </Grid>
           <Button
-            type="submit"
+            /* type="submit" */
             fullWidth
             variant="contained"
+            onClick={_onPress}
             color="primary"
             className={classes.submit}
           >
             Sign Up
           </Button>
+
           <Grid container justify="flex-end">
             <Grid item>
               <Link to="/logIn" variant="body2">
