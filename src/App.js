@@ -46,7 +46,7 @@ const App = () => {
 
               <Route exact path="/logIn" component={SignInSide} />
               <Route exact path="/signUp" component={SignUp} />
-              <Route exact path="/cafe" >
+              <Route exact path="/coffeeList" >
                   <Navigation/> 
                   <CoffeeList></CoffeeList>
               </Route>

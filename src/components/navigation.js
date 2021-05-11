@@ -21,7 +21,7 @@ export const Navigation = (props) => {
             <span className='icon-bar'></span>{' '}
             <span className='icon-bar'></span>{' '}
           </button>
-          <a className='navbar-brand page-scroll' href='#page-top'>
+          <a className='navbar-brand page-scroll' href='/#page-top'>
             JAVA - BREW
           </a>{' '}
         </div>
@@ -32,27 +32,27 @@ export const Navigation = (props) => {
         >
           <ul className='nav navbar-nav navbar-right'>
             <li>
-              <a href='#features' className='page-scroll'>
+              <a href='/#features' className='page-scroll'>
                 Características
               </a>
             </li>
             <li>
-              <a href='#about' className='page-scroll'>
+              <a href='/#about' className='page-scroll'>
                 Acerca de
               </a>
             </li>
             <li>
-              <a href='#services' className='page-scroll'>
+              <a href='/#services' className='page-scroll'>
                 Servicios
               </a>
             </li>
             <li>
-              <a href='#portfolio' className='page-scroll'>
+              <a href='/#portfolio' className='page-scroll'>
                 Galería
               </a>
             </li>
             <li>
-              <a href='#team' className='page-scroll'>
+              <a href='/#team' className='page-scroll'>
                 Equipo
               </a>
             </li>
@@ -62,12 +62,18 @@ export const Navigation = (props) => {
               <a href='/logIn' className='page-scroll'>
                 Iniciar Sesión
               </a>
-            </li> : 
-            <li>
-            <Link onClick={() => {localStorage.removeItem('token'); history.go(0);}} to="" variant="contained" color="primary" >
-              Cerrar Sesion
-            </Link>
-            </li>
+            </li> : <>
+              <li>
+                  <Link  to="/coffeeList" variant="contained" color="primary" >
+                  Ver catálogo
+                </Link></li>
+                <li>
+                <Link onClick={() => {localStorage.removeItem('token'); history.go(0);}} to="" variant="contained" color="primary" >
+                  Cerrar Sesion
+                </Link>
+                </li>
+
+            </>
             }
             
           </ul>
