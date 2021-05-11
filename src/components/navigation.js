@@ -1,4 +1,10 @@
+import history from './history';
+import { Link } from "react-router-dom";
+
 export const Navigation = (props) => {
+
+  let accessToken = localStorage.getItem('token');
+
   return (
     <nav id='menu' className='navbar navbar-default navbar-fixed-top'>
       <div className='container'>
@@ -50,7 +56,20 @@ export const Navigation = (props) => {
                 Equipo
               </a>
             </li>
-
+            
+            {(!accessToken ) ? 
+            <li>
+              <a href='/logIn' className='page-scroll'>
+                Iniciar Sesión
+              </a>
+            </li> : 
+            <li>
+            <Link onClick={() => {localStorage.removeItem('token'); history.go(0);}} to="" variant="contained" color="primary" >
+              Cerrar Sesion
+            </Link>
+            </li>
+            }
+            
           </ul>
         </div>
       </div>

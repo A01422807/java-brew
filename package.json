@@ -8,6 +8,7 @@
     "@testing-library/jest-dom": "^5.11.9",
     "@testing-library/react": "^11.2.5",
     "@testing-library/user-event": "^12.8.3",
+    "axios": "^0.21.1",
     "react": "^17.0.1",
     "react-dom": "^17.0.1",
     "react-router": "^5.2.0",
@@ -17,7 +18,11 @@
   },
   "scripts": {
     "start": "react-scripts start",
+    "start-dev": "REACT_APP_API_URL=http://35.223.17.191:8080 npm run start",
+    "start-prod": "REACT_APP_API_URL=http://34.67.82.244:8080 npm run start",
     "build": "react-scripts build",
+    "build-dev": "REACT_APP_API_URL=http://35.223.17.191:8080 npm run build",
+    "build-prod": "REACT_APP_API_URL=http://34.67.82.244:8080 npm run build --prod",
     "test": "react-scripts test",
     "eject": "react-scripts eject"
   },

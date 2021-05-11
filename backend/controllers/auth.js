@@ -8,7 +8,7 @@ exports.signup = async function(req, res){
 
     const isEmailExist = await Person.findOne({ email: req.body.email });
     if (isEmailExist) {
-        return res.status(400).json({error: 'Email ya registrado'})
+        return res.status(400).json({message: 'Email ya registrado'})
     }
 
     var user = new Person({
@@ -20,7 +20,7 @@ exports.signup = async function(req, res){
 
     user.save(function(err){
     if (err) {
-        res.status(500).send({ message: err });
+        res.status(500).send({ message: err.message });
         return;
     }
         var token = jwt.encode({ id: user.id }, config.TOKEN_SECRET);

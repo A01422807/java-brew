@@ -1,5 +1,5 @@
 import { useState, useEffect } from 'react'
-import { BrowserRouter as Router, Route, Switch } from "react-router-dom";
+import { Router, Route, Switch } from "react-router-dom";
 import { Navigation } from './components/navigation'
 import { Header } from './components/header'
 import { Features } from './components/features'
@@ -10,6 +10,8 @@ import { Team } from './components/Team'
 import  SignInSide  from './components/signInSide'
 import  SignUp  from './components/signUp'
 import JsonData from './data/data.json'
+import history from './components/history';
+
 
 const App = () => {
   const [landingPageData, setLandingPageData] = useState({})
@@ -19,20 +21,32 @@ const App = () => {
 
   return (
     <div>
-       <Router>
+       <Router history={history}>
           <div>
             <Switch>
-              <Route exact path="/" component={SignInSide} />
+             <Route exact path="/"> <Navigation/> 
+              <Header data={landingPageData.Header} />
+              <Features data={landingPageData.Features} />
+              <About data={landingPageData.About} />
+              <Services data={landingPageData.Services} />
+              <Gallery />
+              <Team data={landingPageData.Team} />  
+              </Route> 
               <Route exact path="/home"> <Navigation/> 
               <Header data={landingPageData.Header} />
               <Features data={landingPageData.Features} />
               <About data={landingPageData.About} />
               <Services data={landingPageData.Services} />
               <Gallery />
-              <Team data={landingPageData.Team} />  </Route> 
+              <Team data={landingPageData.Team} />  
+              </Route> 
+
+
+
               <Route exact path="/logIn" component={SignInSide} />
               <Route exact path="/signUp" component={SignUp} />
               <Route render={() => <h1>Not found!</h1>} />
+              
             </Switch>
           </div>
         </Router>
