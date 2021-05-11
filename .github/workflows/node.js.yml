@@ -29,7 +29,7 @@ jobs:
         node-version: ${{ matrix.node-version }}
     - run: npm ci
     - run: npm run build --if-present
-    - run: echo ${{github.ref}}
+    - run: echo ${{CI_COMMIT_BRANCH}}
     - if: github.ref == 'refs/heads/develop'
       run: npm run build-dev --if-present
     - if: github.ref == 'refs/heads/release'
