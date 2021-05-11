@@ -7,10 +7,15 @@ on:
   push:
     branches: 
       - '*'
+    branches-ignore:
+      - 'main'
+      - 'release'
   pull_request:
     branches:
       - '*'
-
+    branches-ignore:
+      - 'main'
+      - 'release'
 jobs:
   build:
 
