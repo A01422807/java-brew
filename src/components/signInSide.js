@@ -11,6 +11,7 @@ import Typography from '@material-ui/core/Typography';
 import { makeStyles } from '@material-ui/core/styles';
 import history from './history';
 import axios from 'axios';
+import { baseURL } from '../config';
 
 
 const useStyles = makeStyles((theme) => ({
@@ -61,7 +62,7 @@ function _handleErrorInputChange(e) {
 async function _onPress() {
 
   try {
-    let response = await axios.post("http://localhost:8081/auth/login", {
+    let response = await axios.post(baseURL + "/auth/login", {
     email: email,
     password: pass
     })
