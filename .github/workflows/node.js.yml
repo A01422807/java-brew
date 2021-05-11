@@ -29,8 +29,4 @@ jobs:
         node-version: ${{ matrix.node-version }}
     - run: npm ci
     - run: npm run build --if-present
-    - if: github.ref == 'develop'
-      run: npm run build-dev --if-present
-    - if: github.ref == 'release'
-      run: npm run build-prod --if-present
     - run: npm test
