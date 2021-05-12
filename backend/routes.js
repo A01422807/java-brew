@@ -48,7 +48,7 @@ module.exports = function (app) {
   app.get('/profile', ensureAuthenticated, People.profile);
 
   // 6. Coffee Routes
-  app.get('/coffee', ensureAuthenticated, Coffee.list);
+  app.get('/coffee', Coffee.list);
   app.get('/coffee/page/:page', ensureAuthenticated, Coffee.list);
   app.get('/coffee/:id', ensureAuthenticated, Coffee.byId);
 
