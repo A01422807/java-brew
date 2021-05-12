@@ -21,7 +21,7 @@ export const Gallery = (props) => {
                     data-lightbox-gallery='gallery1'
                   >
                     <div className='hover-text'>
-                      <h4>Lorem Ipsum</h4>
+                      <h4>Sabor</h4>
                     </div>
                     <img
                       src='img/portfolio/01-small.jpg'
