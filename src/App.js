@@ -13,7 +13,7 @@ import JsonData from './data/data.json'
 import history from './components/history';
 
 import CoffeeList from './components/coffeeList';
-
+import CoffeePreview from './components/coffeePreview'
 const App = () => {
   const [landingPageData, setLandingPageData] = useState({})
   useEffect(() => {
@@ -31,6 +31,7 @@ const App = () => {
               <About data={landingPageData.About} />
               <Services data={landingPageData.Services} />
               <Gallery />
+              <CoffeePreview></CoffeePreview>
               <Team data={landingPageData.Team} />  
               </Route> 
               <Route exact path="/home"> <Navigation/> 
@@ -39,6 +40,7 @@ const App = () => {
               <About data={landingPageData.About} />
               <Services data={landingPageData.Services} />
               <Gallery />
+              <CoffeePreview></CoffeePreview>
               <Team data={landingPageData.Team} />  
               </Route> 
 
