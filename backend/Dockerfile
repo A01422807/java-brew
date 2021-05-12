@@ -1,7 +1,9 @@
 FROM node:15
 
 # Create app directory
-WORKDIR /usr/src/app
+RUN mkdir -p /home/node/app/node_modules && chown -R node:node /home/node/app
+
+WORKDIR /home/node/app
 
 # Install app dependencies
 # A wildcard is used to ensure both package.json AND package-lock.json are copied
@@ -14,6 +16,10 @@ RUN npm install
 
 # Bundle app source
 COPY . .
+
+COPY --chown=node:node . .
+
+USER node
 
 EXPOSE 8080
 
