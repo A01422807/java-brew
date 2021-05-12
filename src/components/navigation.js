@@ -1,4 +1,10 @@
+import history from './history';
+import { Link } from "react-router-dom";
+
 export const Navigation = (props) => {
+
+  let accessToken = localStorage.getItem('token');
+
   return (
     <nav id='menu' className='navbar navbar-default navbar-fixed-top'>
       <div className='container'>
@@ -15,7 +21,7 @@ export const Navigation = (props) => {
             <span className='icon-bar'></span>{' '}
             <span className='icon-bar'></span>{' '}
           </button>
-          <a className='navbar-brand page-scroll' href='#page-top'>
+          <a className='navbar-brand page-scroll' href='/#page-top'>
             JAVA - BREW
           </a>{' '}
         </div>
@@ -26,30 +32,50 @@ export const Navigation = (props) => {
         >
           <ul className='nav navbar-nav navbar-right'>
             <li>
-              <a href='#features' className='page-scroll'>
+              <a href='/#features' className='page-scroll'>
                 Características
               </a>
             </li>
             <li>
-              <a href='#about' className='page-scroll'>
+              <a href='/#about' className='page-scroll'>
                 Acerca de
               </a>
             </li>
             <li>
-              <a href='#services' className='page-scroll'>
+              <a href='/#services' className='page-scroll'>
                 Servicios
               </a>
             </li>
             <li>
-              <a href='#portfolio' className='page-scroll'>
+              <a href='/#portfolio' className='page-scroll'>
                 Galería
               </a>
             </li>
             <li>
-              <a href='#team' className='page-scroll'>
+              <a href='/#team' className='page-scroll'>
                 Equipo
               </a>
             </li>
+            
+            {(!accessToken ) ? 
+            <li>
+              <a href='/logIn' className='page-scroll'>
+                Iniciar Sesión
+              </a>
+            </li> : <>
+              <li>
+                  <Link  to="/coffeeList" variant="contained" color="primary" >
+                  Ver catálogo
+                </Link></li>
+                <li>
+                <Link onClick={() => {localStorage.removeItem('token'); history.go(0);}} to="" variant="contained" color="primary" >
+                  Cerrar Sesion
+                </Link>
+                </li>
+
+            </>
+            }
+            
           </ul>
         </div>
       </div>

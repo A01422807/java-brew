@@ -5,6 +5,7 @@
         "paragraph": "Java-brew está diseñado para proveer claridad a la hora de escoger el mejor grano de café según sus preferencias y el método que suele usar para extraér el café."
 
     },
+
     "About": {
         "paragraph": "El proyecto Java Brew busca convertirse en un catálogo de cosechas de café, en donde los usuarios podrán introducir sus preferencias en cuanto a su sabor, textura, y hasta nivel de tueste para que el sistema le provea las mejores recomendaciones dentro de cientos de posibilidades.",
         "Why": [
@@ -20,6 +21,7 @@
             "Lorem ipsum dolor"
         ]
     },
+
     "Services": [{
             "icon": "fa fa-wordpress",
             "name": "Lorem ipsum dolor",
@@ -50,9 +52,8 @@
             "name": "Consectetur adipiscing",
             "text": "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Duis sed dapibus leo nec ornare diam sedasd commodo nibh ante facilisis bibendum dolor feugiat at."
         }
-
-
     ],
+
     "Team": [{
             "img": "img/team/Abel.jpeg",
             "name": "Abel Daniel",
@@ -68,25 +69,26 @@
             "job": "Diseñador"
         }
     ],
+    
     "Features": [{
-            "icon": "fa fa-comments-o",
-            "title": "Lorem ipsum",
-            "text": "Lorem ipsum dolor sit amet placerat facilisis felis mi in tempus eleifend pellentesque natoque etiam."
+            "img": "img/team/Salva.jpeg",
+            "title": "El aroma",
+            "text": "Al igual que un catador de vino, antes debemos primero aspirar el olor del café. Esta característica aromática, se debe al aceite cafeína, que es un distintivo volátil del café, que generalmente se acentúa después de la operación del molido"
         },
         {
-            "icon": "fa fa-bullhorn",
-            "title": "Lorem ipsum",
-            "text": "Lorem ipsum dolor sit amet placerat facilisis felis mi in tempus eleifend pellentesque natoque etiam."
+            "img": "fa fa-bullhorn",
+            "title": "Cuerpo",
+            "text": "Lo podemos distinguir por la sensación táctil causada por la densidad del café en la boca, su textura, viscosidad, peso y grosor."
         },
         {
-            "icon": "fa fa-group",
-            "title": "Lorem ipsum",
-            "text": "Lorem ipsum dolor sit amet placerat facilisis felis mi in tempus eleifend pellentesque natoque etiam."
+            "img": "fa fa-group",
+            "title": "Acidez",
+            "text": "La acidez va de la mano con la cosecha, entre más alto el lugar donde se cultiva el café, mayor será su acidez. Se puede sentir con la con la sequedad que produce el café, en los borde de la lengua y en la parte de atrás del paladar."
         },
         {
-            "icon": "fa fa-magic",
-            "title": "Lorem ipsum",
-            "text": "Lorem ipsum dolor sit amet placerat facilisis felis mi in tempus eleifend pellentesque natoque etiam."
+            "img": "fa fa-magic",
+            "title": "Sabor",
+            "text": "El aroma, el cuerpo y la acidez, son estos tres factores que determinan la sensación del sabor del café, por ello los catadores profesionales los han subdividió en sabores primarios Ácidos, Meloso, Vinoso, Blando, Mordaz, Agriados. Etc."
         }
     ]
 }
