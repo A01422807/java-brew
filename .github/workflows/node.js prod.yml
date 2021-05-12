@@ -6,6 +6,7 @@ name: Node.js CI PROD
 on:
   push:
     branches: 
+      - 'release'
       - 'main'
   pull_request:
     branches:
