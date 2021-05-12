@@ -12,7 +12,7 @@ import { green, pink, purple } from "@material-ui/core/colors";
 import axios from 'axios';
 import Container from '@material-ui/core/Container';
 import CssBaseline from '@material-ui/core/CssBaseline';
-
+import { baseURL } from '../config';
 
 export default function CooffeeList() {
   const [data, setData] = useState([]);
@@ -26,7 +26,7 @@ export default function CooffeeList() {
   const getCoffee = () => {
     if (accessToken) {
       axios
-        .get("http://localhost:8081/coffee/page/" + currentPage, config)
+        .get(baseURL+"/coffee/page/" + currentPage, config)
         .then(function (response) {
           // handle success
           console.log(response);
