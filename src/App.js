@@ -12,6 +12,7 @@ import  SignUp  from './components/signUp'
 import JsonData from './data/data.json'
 import history from './components/history';
 
+import CoffeeList from './components/coffeeList';
 
 const App = () => {
   const [landingPageData, setLandingPageData] = useState({})
@@ -45,6 +46,10 @@ const App = () => {
 
               <Route exact path="/logIn" component={SignInSide} />
               <Route exact path="/signUp" component={SignUp} />
+              <Route exact path="/coffeeList" >
+                  <Navigation/> 
+                  <CoffeeList></CoffeeList>
+              </Route>
               <Route render={() => <h1>Not found!</h1>} />
               
             </Switch>
