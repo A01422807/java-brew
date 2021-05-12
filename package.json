@@ -18,11 +18,11 @@
   },
   "scripts": {
     "start": "react-scripts start",
-    "start-dev": "REACT_APP_API_URL=http://35.223.17.191:8080 npm run start",
-    "start-prod": "REACT_APP_API_URL=http://34.67.82.244:8080 npm run start",
+    "start-dev": "env-cmd -f dev.env npm run start",
+    "start-prod": "env-cmd -f prod.env npm run start",
     "build": "react-scripts build",
-    "build-dev": "REACT_APP_API_URL=http://35.223.17.191:8080 npm run build",
-    "build-prod": "REACT_APP_API_URL=http://34.67.82.244:8080 npm run build --prod",
+    "build-dev": "env-cmd -f dev.env npm run build",
+    "build-prod": "env-cmd -f prod.env npm run build --prod",
     "test": "react-scripts test",
     "eject": "react-scripts eject"
   },
@@ -43,5 +43,8 @@
       "last 1 firefox version",
       "last 1 safari version"
     ]
+  },
+  "devDependencies": {
+    "env-cmd": "^10.1.0"
   }
 }
