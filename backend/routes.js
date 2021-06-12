@@ -7,6 +7,9 @@ var People = require('./controllers/users.js');
 var Coffee = require('./controllers/coffee.js');
 var Cafeteria = require('./controllers/cafeteria.js');
 var Person = require('./models/user.js');
+var { graphqlHTTP } = require('express-graphql');
+var schemas = require('./models/graphql.js')
+var root = require('./controllers/graphql.js')
 
 // 2. Authentication Middleware
 function ensureAuthenticated(req, res, next) {
@@ -55,5 +58,12 @@ module.exports = function (app, client) {
   app.get('/cafeterias/:id', (req, res) => Cafeteria.byId(req, res, client));
   app.get('/coffee/page/:page', ensureAuthenticated, Coffee.list);
   app.get('/coffee/:id', ensureAuthenticated, Coffee.byId);
+
+  // 7. Graphql
+  app.use('/graphql', graphqlHTTP({
+    schema: schemas,
+    rootValue: root,
+    graphiql: true
+  }))
 
 };

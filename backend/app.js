@@ -33,10 +33,11 @@ client.on("error", (err) => {
   console.log(err);
 })
 
-// 5. Load app routes
+
+// 6. Load app routes
 require('./routes')(app, client);
 
-// 6. Start the server
+// 7. Start the server
 app.listen(config.LISTEN_PORT, function(){
     console.log('listening on port ' + config.LISTEN_PORT);
 });
