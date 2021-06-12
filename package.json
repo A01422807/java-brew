@@ -22,7 +22,7 @@
     "start-prod": "env-cmd -f prod.env npm run start",
     "build": "react-scripts build",
     "build-dev": "env-cmd -f dev.env npm run build",
-    "build-prod": "env-cmd -f prod.env npm run build --prod",
+    "build-prod": "BUILD_PATH='./dist' env-cmd -f prod.env npm run build --prod",
     "test": "react-scripts test",
     "eject": "react-scripts eject"
   },
