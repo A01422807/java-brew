@@ -16,5 +16,8 @@ module.exports = {
     TOKEN_SECRET: process.env.TOKEN_SECRET || 'pvpnCCZfwOF85pBjbOebZiYIDhZ3w9LZrKwBZ7152K89mPCOHtbRlmr5Z91ci4L',
   
     // 3. Express Server Port
-    LISTEN_PORT: process.env.LISTEN_PORT || 8081
+    LISTEN_PORT: process.env.LISTEN_PORT || 8081,
+
+    // 4. Host Domain
+    HOST_URL: process.env.HOST_URL || 'localhost'
   };

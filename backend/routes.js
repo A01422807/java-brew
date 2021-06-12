@@ -5,6 +5,7 @@ var jwt = require('jwt-simple');
 var Auth = require('./controllers/auth.js');
 var People = require('./controllers/users.js');
 var Coffee = require('./controllers/coffee.js');
+var Cafeteria = require('./controllers/cafeteria.js');
 var Person = require('./models/user.js');
 
 // 2. Authentication Middleware
@@ -37,7 +38,7 @@ function ensureAuthenticated(req, res, next) {
 };
 
 // 3. Routes
-module.exports = function (app) {
+module.exports = function (app, client) {
   // 4. Authentication Routes
   app.post('/auth/login', Auth.login);
   app.post('/auth/signup', Auth.signup);
@@ -49,6 +50,9 @@ module.exports = function (app) {
 
   // 6. Coffee Routes
   app.get('/coffee', Coffee.list);
+  app.get('/cafeterias', (req, res) => Cafeteria.list(req, res, client));
+  app.get('/cafeterias/page/:page', (req, res) => Cafeteria.list(req, res, client));
+  app.get('/cafeterias/:id', (req, res) => Cafeteria.byId(req, res, client));
   app.get('/coffee/page/:page', ensureAuthenticated, Coffee.list);
   app.get('/coffee/:id', ensureAuthenticated, Coffee.byId);
 
