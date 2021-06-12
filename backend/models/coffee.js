@@ -5,88 +5,56 @@ mongoosePaginate = require('mongoose-paginate');
 
 // 2. Define the MongoDB schema for the coffee collection
 var coffeeSchema = new Schema({
-    "Region": {
-      "type": "String"
-    },
     "Aroma": {
-      "$numberDouble": {
-        "type": "String"
-      }
+      "type": "Number"
     },
     "aromaN": {
-      "$numberDouble": {
-        "type": "String"
-      }
+      "type": "Number"
     },
     "Flavor": {
-      "$numberDouble": {
-        "type": "String"
-      }
+      "type": "Number"
     },
     "flavorN": {
-      "$numberDouble": {
-        "type": "String"
-      }
+      "type": "Number"
     },
     "Aftertaste": {
-      "$numberDouble": {
-        "type": "String"
-      }
+      "type": "Number"
     },
     "aftertasteN": {
-      "$numberDouble": {
-        "type": "String"
-      }
+      "type": "Number"
     },
     "Acidity": {
-      "$numberDouble": {
-        "type": "String"
-      }
+      "type": "Number"
     },
     "acidityN": {
-      "$numberDouble": {
-        "type": "String"
-      }
+      "type": "Number"
     },
     "Body": {
-      "$numberDouble": {
-        "type": "String"
-      }
+      "type": "Number"
     },
     "bodyN": {
-      "$numberDouble": {
-        "type": "String"
-      }
+      "type": "Number"
     },
     "Balance": {
-      "$numberDouble": {
-        "type": "String"
-      }
+      "type": "Number"
     },
     "balanceN": {
-      "$numberDouble": {
-        "type": "String"
-      }
+      "type": "Number"
     },
     "Moisture": {
-      "$numberDouble": {
-        "type": "String"
-      }
+      "type": "Number"
     },
     "moistureN": {
-      "$numberDouble": {
-        "type": "String"
-      }
+      "type": "Number"
     },
     "altitude_mean_meters": {
-      "$numberInt": {
-        "type": "String"
-      }
+      "type": "Number"
     },
     "altitudeN": {
-      "$numberInt": {
-        "type": "String"
-      }
+      "type": "Number"
+    },
+    "Region": {
+      "type": "String"
     }
   }, { collection: 'coffee' });
 
