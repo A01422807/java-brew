@@ -72,6 +72,10 @@ export const Navigation = (props) => {
                   Favoritos
                 </Link></li>  
                 <li>
+                  <Link  to="/cafeterias" variant="contained" color="primary" >
+                  Cafeterias
+                </Link></li> 
+                <li>
                 <Link onClick={() => {localStorage.removeItem('token'); history.go(0);}} to="" variant="contained" color="primary" >
                   Cerrar Sesion
                 </Link>
