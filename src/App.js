@@ -9,11 +9,13 @@ import { Gallery } from './components/gallery'
 import { Team } from './components/Team'
 import  SignInSide  from './components/signInSide'
 import  SignUp  from './components/signUp'
+import FavCoffeeList from './components/favCoffeeList'
 import JsonData from './data/data.json'
 import history from './components/history';
 
 import CoffeeList from './components/coffeeList';
 import CoffeePreview from './components/coffeePreview'
+import CafeteriaList from './components/coffeeshopList'
 const App = () => {
   const [landingPageData, setLandingPageData] = useState({})
   useEffect(() => {
@@ -51,6 +53,14 @@ const App = () => {
               <Route exact path="/coffeeList" >
                   <Navigation/> 
                   <CoffeeList></CoffeeList>
+              </Route>
+              <Route exact path="/favCoffee" >
+                  <Navigation/> 
+                  <FavCoffeeList></FavCoffeeList>
+              </Route>
+              <Route exact path="/cafeterias" >
+                  <Navigation/> 
+                  <CafeteriaList></CafeteriaList>
               </Route>
               <Route render={() => <h1>Not found!</h1>} />
               
