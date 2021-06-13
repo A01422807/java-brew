@@ -4,10 +4,30 @@ import './index.css';
 import App from './App';
 import reportWebVitals from './reportWebVitals';
 
+// 1
+import {
+  ApolloProvider,
+  ApolloClient,
+  createHttpLink,
+  InMemoryCache
+} from '@apollo/client';
+import { baseURL } from './config';
+
+// 2
+const httpLink = createHttpLink({
+  uri: baseURL+'/graphql/'
+});
+
+// 3
+const client = new ApolloClient({
+  link: httpLink,
+  cache: new InMemoryCache()
+});
+
 ReactDOM.render(
-  <React.StrictMode>
+  <ApolloProvider client={client}>
     <App />
-  </React.StrictMode>,
+  </ApolloProvider>,
   document.getElementById('root')
 );
 

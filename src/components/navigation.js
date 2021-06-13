@@ -33,7 +33,7 @@ export const Navigation = (props) => {
           <ul className='nav navbar-nav navbar-right'>
             <li>
               <a href='/#features' className='page-scroll'>
-                Características
+                Features
               </a>
             </li>
             <li>
@@ -65,8 +65,12 @@ export const Navigation = (props) => {
             </li> : <>
               <li>
                   <Link  to="/coffeeList" variant="contained" color="primary" >
-                  Ver catálogo
+                  Catálogo
                 </Link></li>
+                <li>
+                  <Link  to="/favCoffee" variant="contained" color="primary" >
+                  Favoritos
+                </Link></li>  
                 <li>
                 <Link onClick={() => {localStorage.removeItem('token'); history.go(0);}} to="" variant="contained" color="primary" >
                   Cerrar Sesion

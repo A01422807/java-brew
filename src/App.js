@@ -9,6 +9,7 @@ import { Gallery } from './components/gallery'
 import { Team } from './components/Team'
 import  SignInSide  from './components/signInSide'
 import  SignUp  from './components/signUp'
+import FavCoffeeList from './components/favCoffeeList'
 import JsonData from './data/data.json'
 import history from './components/history';
 
@@ -51,6 +52,10 @@ const App = () => {
               <Route exact path="/coffeeList" >
                   <Navigation/> 
                   <CoffeeList></CoffeeList>
+              </Route>
+              <Route exact path="/favCoffee" >
+                  <Navigation/> 
+                  <FavCoffeeList></FavCoffeeList>
               </Route>
               <Route render={() => <h1>Not found!</h1>} />
               
