@@ -7,18 +7,14 @@ import Typography from "@material-ui/core/Typography";
 
 import Box from "@material-ui/core/Box";
 
-import Chip from "@material-ui/core/Chip";
-import { green, pink, purple } from "@material-ui/core/colors";
 import axios from 'axios';
 import Container from '@material-ui/core/Container';
 import CssBaseline from '@material-ui/core/CssBaseline';
 import { baseURL } from '../config';
-import CardActions from '@material-ui/core/CardActions';
 
 export default function CafeteriaList() {
   const [data, setData] = useState([]);
   const [currentPage, setcurrentPage] = useState(1);
-  const [user,setUser] = useState({});
   let accessToken = localStorage.getItem("token");
   const config = {
     headers: { Authorization: `Bearer ${accessToken}` },
