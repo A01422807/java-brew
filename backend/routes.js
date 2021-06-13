@@ -5,7 +5,11 @@ var jwt = require('jwt-simple');
 var Auth = require('./controllers/auth.js');
 var People = require('./controllers/users.js');
 var Coffee = require('./controllers/coffee.js');
+var Cafeteria = require('./controllers/cafeteria.js');
 var Person = require('./models/user.js');
+var { graphqlHTTP } = require('express-graphql');
+var schemas = require('./models/graphql.js')
+var root = require('./controllers/graphql.js')
 
 // 2. Authentication Middleware
 function ensureAuthenticated(req, res, next) {
@@ -37,7 +41,7 @@ function ensureAuthenticated(req, res, next) {
 };
 
 // 3. Routes
-module.exports = function (app) {
+module.exports = function (app, client) {
   // 4. Authentication Routes
   app.post('/auth/login', Auth.login);
   app.post('/auth/signup', Auth.signup);
@@ -51,5 +55,17 @@ module.exports = function (app) {
   app.get('/coffee', Coffee.list);
   app.get('/coffee/page/:page', ensureAuthenticated, Coffee.list);
   app.get('/coffee/:id', ensureAuthenticated, Coffee.byId);
+
+  // 7. Cafeteria Routes
+  app.get('/cafeterias', (req, res) => Cafeteria.list(req, res, client));
+  app.get('/cafeterias/page/:page', ensureAuthenticated,(req, res) => Cafeteria.list(req, res, client));
+  app.get('/cafeterias/:id', ensureAuthenticated,(req, res) => Cafeteria.byId(req, res, client));
+
+  // 8. Graphql
+  app.use('/graphql', graphqlHTTP({
+    schema: schemas,
+    rootValue: root,
+    graphiql: true
+  }))
 
 };
