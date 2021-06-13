@@ -58,8 +58,8 @@ module.exports = function (app, client) {
 
   // 7. Cafeteria Routes
   app.get('/cafeterias', (req, res) => Cafeteria.list(req, res, client));
-  app.get('/cafeterias/page/:page', (req, res) => Cafeteria.list(req, res, client));
-  app.get('/cafeterias/:id', (req, res) => Cafeteria.byId(req, res, client));
+  app.get('/cafeterias/page/:page', ensureAuthenticated,(req, res) => Cafeteria.list(req, res, client));
+  app.get('/cafeterias/:id', ensureAuthenticated,(req, res) => Cafeteria.byId(req, res, client));
 
   // 8. Graphql
   app.use('/graphql', graphqlHTTP({
